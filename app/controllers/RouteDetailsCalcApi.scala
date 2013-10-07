@@ -27,8 +27,12 @@ object RouteDetailsCalcApi extends BaseApi  with RestResourceUtil{
   @ApiOperation(value = "Lista detalhes das rotas", notes = "Retorna os detalhes de uma rota",
     responseClass = "br.com.semighini.model.RouteTotalsResult", httpMethod = "POST")
   @ApiErrors(Array(
-    new ApiError(code = 400, reason = "Tipo de rota invalido"),
-    new ApiError(code = 404, reason = "Endereco nao encontrado")))
+    new ApiError(code = 400, reason = "Endereco invalido."),
+    new ApiError(code = 400, reason = "Apenas um endereco na lista, sao necessarios mais de um endereco na lita para executar este metodo"),
+    new ApiError(code = 400, reason = "Tipo de rota invalido, os valores aceitos sao 0 ou 23"),
+    new ApiError(code = 404, reason = "Endereco nao encontrado"),
+    new ApiError(code = 500, reason = "Erro interno no servidor, tente mais tarde")
+  ))
   @ApiParamsImplicit(Array(
     new ApiParamImplicit(name = "AddressListRouteType", dataType = "br.com.semighini.model.RouteStopPointsRouteType",
       paramType = "body", value = "Lista de paradas e tipo de rota", required = true)))
