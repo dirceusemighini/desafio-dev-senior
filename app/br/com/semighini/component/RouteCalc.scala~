@@ -1,0 +1,24 @@
+package br.com.semighini.component
+
+import br.com.maplink.address.finder.Address
+import br.com.semighini.logging.Loggable
+import br.com.semighini.utils.RouteType
+
+/**
+ * Created with IntelliJ IDEA.
+ * User: dirceu
+ * Date: 02/10/13
+ * Time: 10:01
+ * To change this template use File | Settings | File Templates.
+ */
+object Router extends Loggable {
+   def routeCostsCalc(addresses :List[Address], `type`:Int ) = {
+     val routeType =  RouteType( `type`)
+     if(routeType!=RouteType.AvoidTraffic || routeType!=RouteType.StandardFastestWithTrafficTime)    {
+          throw new IllegalArgumentException("Tipo Invalido de tipo rota. Tipos v")
+     }
+
+      logger.info("Start processing the list of addresses")
+     addresses.foreach()
+   }
+}
