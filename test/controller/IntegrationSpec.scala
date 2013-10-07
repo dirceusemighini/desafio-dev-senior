@@ -1,3 +1,5 @@
+package controller
+
 import controllers.RouteDetailsCalcApi
 import generated.{City, Address}
 import org.specs2.mutable._

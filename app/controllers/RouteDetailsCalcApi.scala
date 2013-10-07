@@ -51,8 +51,7 @@ object RouteDetailsCalcApi extends BaseApi  with RestResourceUtil{
           }
       }.recoverTotal {
         e =>
-
-          BadRequest(JsError.toFlatJson(e)).as(JSON)
+          jsonResponse(JsError.toFlatJson(e),BAD_REQUEST)
       }
   }
 }
